@@ -1,11 +1,13 @@
+trigger:
+- main
 
 pool:
   vmImage: 'windows-latest'
-
 variables:
-  outerVariable: 
-    innerVariable1: 'Value1'
-    innerVariable2: 'Value2'
+- name: 'devopsAccount' 
+  value: 'projectName'
+- name: 'projectName' # new variable defined in YAML
+  value: 'contosoads'
 
 stages:
 - stage: Example
@@ -13,6 +15,5 @@ stages:
   - job: DisplayValues
     steps:
     - script: |
-        echo "Inner Variable 1: $($(outerVariable).innerVariable1)"
-        echo "Inner Variable 2: $($(outerVariable).innerVariable2)"
+        echo "Inner Variable 1: $($(devopsAccount))"
       displayName: 'Display Variable Values'
