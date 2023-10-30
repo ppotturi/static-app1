@@ -15,5 +15,6 @@ stages:
   - job: DisplayValues
     steps:
     - script: |
-        echo "Inner Variable 1:" $[variables.$(devopsAccount)]
+        echo "Inner Variable 1:" $[variables.projectName]
+        echo "Inner Variable 2:" $[variables.$(devopsAccount)]
       displayName: 'Display Variable Values'
