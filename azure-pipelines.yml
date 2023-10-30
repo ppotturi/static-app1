@@ -5,7 +5,7 @@ pool:
   vmImage: 'windows-latest'
 variables:
 - name: 'devopsAccount' 
-  value: 'projectName'
+  value: $(projectName)
 - name: 'projectName' # new variable defined in YAML
   value: 'contosoads'
 
@@ -15,6 +15,5 @@ stages:
   - job: DisplayValues
     steps:
     - script: |
-        echo "Inner Variable 1:"  coalesce(variables.projectName,'')
-        echo "Inner Variable 2:"  coalesce(variables.$(devopsAccount),'')
+        echo "Inner Variable 1:"  $(devopsAccount)
       displayName: 'Display Variable Values'
