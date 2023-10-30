@@ -4,10 +4,12 @@ trigger:
 pool:
   vmImage: 'windows-latest'
 variables:
-- name: 'devopsAccount' 
-  value: $(projectName)
-- name: 'projectName' # new variable defined in YAML
-  value: 'contosoads'
+- name: 'serviceConnectionClientIdSecretName' 
+  value: 'kvVar'
+- name: 'localVar' # new variable defined in YAML
+  value: $(serviceConnectionClientIdSecretName)'
+- name: kvVar
+  value: 'final'
 
 stages:
 - stage: Example
@@ -15,6 +17,5 @@ stages:
   - job: DisplayValues
     steps:
     - script: |
-        echo "Inner Variable 1:"  $(devopsAccount)
-        echo "Inner Variable 2:"  $(variables.devopsAccount)
+        echo "Inner Variable 1:"  $(localVar)
       displayName: 'Display Variable Values'
