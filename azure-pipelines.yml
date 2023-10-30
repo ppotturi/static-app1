@@ -1,0 +1,20 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  outerVariable: 
+    innerVariable1: 'Value1'
+    innerVariable2: 'Value2'
+
+stages:
+- stage: Example
+  jobs:
+  - job: DisplayValues
+    steps:
+    - script: |
+        echo "Inner Variable 1: $($(outerVariable).innerVariable1)"
+        echo "Inner Variable 2: $($(outerVariable).innerVariable2)"
+      displayName: 'Display Variable Values'
