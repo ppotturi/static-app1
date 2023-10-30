@@ -17,5 +17,5 @@ stages:
   - job: DisplayValues
     steps:
     - script: |
-        echo ${{ variables['kvVar'] }}
+        echo ${{ variables.$(localVar) }}
       displayName: 'Display Variable Values'
