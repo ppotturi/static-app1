@@ -11,10 +11,10 @@ variables:
 
 stages:
 - stage: Example
-  displayName:  Example - $[variables.devopsAccount]
   jobs:
   - job: DisplayValues
     steps:
     - script: |
         echo "Inner Variable 1:"  $(devopsAccount)
+        echo "Inner Variable 2:"  $(variables.devopsAccount)
       displayName: 'Display Variable Values'
