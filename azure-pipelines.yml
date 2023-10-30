@@ -10,7 +10,7 @@ variables:
   value: 'contosoads'
 
 stages:
-- stage: Example
+- stage: Example - $[variables.devopsAccount]
   jobs:
   - job: DisplayValues
     steps:
