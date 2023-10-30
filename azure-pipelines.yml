@@ -17,5 +17,5 @@ stages:
   - job: DisplayValues
     steps:
     - script: |
-        echo "Inner Variable 1:"  $(localVar)
+        echo $[variables['kvVar']]
       displayName: 'Display Variable Values'
