@@ -15,6 +15,7 @@ stages:
 - stage: Example
   jobs:
   - job: DisplayValues
+    pool: DEFRA-ADP-SND1-ubuntu2204
     steps:
     - task: CmdLine@2
       inputs:
