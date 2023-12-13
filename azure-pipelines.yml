@@ -19,6 +19,3 @@ stages:
     - task: CmdLine@2
       inputs:
         script: 'az bicep version'
-    - script: |
-        echo ${{ variables.$(localVar) }}
-      displayName: 'Display Variable Values'
