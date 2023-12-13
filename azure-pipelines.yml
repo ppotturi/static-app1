@@ -20,5 +20,5 @@ stages:
     - task: CmdLine@2
       inputs:
         script: |
-          az bicep upgrade
+          #az bicep upgrade
           az bicep version
